@@ -32,3 +32,19 @@ def create_office():
             "type": type
             }]
     }), 201)        
+
+
+@bluprint.route("/offices/<int:office_id>", methods=["GET"])
+def get_single_office(office_id):
+
+    office = PoliticalOfficeModel.get_specific_office(office_id)
+
+    if office:
+        return make_response(jsonify({
+            "status": 200,
+            "data": office
+        }), 200)
+    return make_response(jsonify({
+        "status": 404,
+        "error": "Office not found on server"
+    }), 404)    
