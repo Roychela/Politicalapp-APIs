@@ -9,3 +9,12 @@ class PoliticalOfficeModel():
     @staticmethod
     def view_all_offices():
         return alloffices 
+
+    def saveoffice(self):
+        politicaloffice = {
+            "id": self.id,
+            "type": self.type,
+            "name": self.name,
+            } 
+        alloffices.append(politicaloffice)  
+    
