@@ -18,3 +18,9 @@ class PoliticalOfficeModel():
             } 
         alloffices.append(politicaloffice)  
     
+    @staticmethod
+    def get_specific_office(id):
+        return [office for office in alloffices if office["id"] == id]
+
+
+    
