@@ -28,3 +28,9 @@ def create_party():
             "logoUrl": logoUrl
         }]
     }), 201)
+
+@bluprint.route("/parties", methods= ["GET"] )
+def get_all_parties():
+    return make_response(jsonify({
+        "status": 200,
+        "data": PoliticalPartiesModel.view_all_parties() }), 200)
