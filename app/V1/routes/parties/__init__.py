@@ -1,6 +1,6 @@
 from flask import jsonify, make_response, request
 from app.V1.routes import bluprint
-from app.V1.models import PoliticalPartiesModel
+from app.V1.models import PoliticalPartiesModel, allparties
 
 
 @bluprint.route("/parties", methods= ["POST"])
@@ -50,3 +50,11 @@ def get_one_party(party_id):
         "status": 404,
         "error": "Party not found on server"
     }), 404)    
+
+@bluprint.route("/parties/<int:party_id>", methods=["DELETE"])    
+def delete_party(party_id):
+    party = PoliticalPartiesModel.get_specific_party(party_id)
+    allparties.remove(party[0])
+    return make_response(jsonify({
+        "status": 204,
+        "data": [{"message": "Party successfully deleted"}]}), 204)
