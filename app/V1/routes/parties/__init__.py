@@ -34,3 +34,19 @@ def get_all_parties():
     return make_response(jsonify({
         "status": 200,
         "data": PoliticalPartiesModel.view_all_parties() }), 200)
+
+
+@bluprint.route("/parties/<int:party_id>", methods=["GET"])
+def get_one_party(party_id):
+
+    party = PoliticalPartiesModel.get_specific_party(party_id)
+
+    if party:
+        return make_response(jsonify({
+            "status": 200,
+            "data": party
+        }), 200)
+    return make_response(jsonify({
+        "status": 404,
+        "error": "Party not found on server"
+    }), 404)    

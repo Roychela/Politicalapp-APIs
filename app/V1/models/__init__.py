@@ -44,3 +44,7 @@ class PoliticalPartiesModel():
             "logoUrl": self.logoUrl
             } 
         allparties.append(politicalparty) 
+
+    @staticmethod
+    def get_specific_party(id):
+        return [party for party in allparties if party["id"] == id]    
