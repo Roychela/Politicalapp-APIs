@@ -1,6 +1,6 @@
 from flask import jsonify, make_response, request
 from app.V1.views import bluprint
-from app.V1.models import PoliticalPartiesModel, allparties
+from app.V1.models.appmodels import PoliticalPartiesModel, allparties
 
 
 @bluprint.route("/parties", methods= ["POST"])
