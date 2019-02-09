@@ -1,5 +1,5 @@
 from flask import jsonify, make_response, request
-from app.V1.routes import bluprint
+from app.V1.views import bluprint
 from app.V1.models import PoliticalOfficeModel
 
 
